@@ -2,6 +2,7 @@ import { boolean, enums, Infer, object, optional } from "superstruct";
 import { HaFormSchema } from "../../utils/form/ha-form";
 import { IconType, ICON_TYPES, Info, INFOS } from "../../utils/info";
 import { Layout, layoutStruct } from "../../utils/layout";
+import { mdiPalette } from "@mdi/js";
 
 export const appearanceSharedConfigStruct = object({
   layout: optional(layoutStruct),
@@ -23,20 +24,28 @@ export type Appearance = {
 
 export const APPEARANCE_FORM_SCHEMA: HaFormSchema[] = [
   {
-    type: "grid",
-    name: "",
+    type: "expandable",
+    name: "appearance",
+    flatten: true,
+    iconPath: mdiPalette,
     schema: [
-      { name: "layout", selector: { mush_layout: {} } },
-      { name: "fill_container", selector: { boolean: {} } },
-    ],
-  },
-  {
-    type: "grid",
-    name: "",
-    schema: [
-      { name: "primary_info", selector: { mush_info: {} } },
-      { name: "secondary_info", selector: { mush_info: {} } },
-      { name: "icon_type", selector: { mush_icon_type: {} } },
+      {
+        type: "grid",
+        name: "",
+        schema: [
+          { name: "layout", selector: { mush_layout: {} } },
+          { name: "fill_container", selector: { boolean: {} } },
+        ],
+      },
+      {
+        type: "grid",
+        name: "",
+        schema: [
+          { name: "primary_info", selector: { mush_info: {} } },
+          { name: "secondary_info", selector: { mush_info: {} } },
+          { name: "icon_type", selector: { mush_icon_type: {} } },
+        ],
+      },
     ],
   },
 ];

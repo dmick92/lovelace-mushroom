@@ -8,7 +8,7 @@
     "build": "rollup -c --bundleConfigAsCjs",
     "format": "prettier --write .",
     "start:hass-stable": "docker run --rm -p8123:8123 -v ./.hass_dev:/config homeassistant/home-assistant:stable",
-    "start:hass": "docker run --rm -p8123:8123 -v ./.hass_dev:/config homeassistant/home-assistant:beta",
+    "start:hass": "docker run --rm -p8123:8123 -v ./.hass_dev/config homeassistant/home-assistant:beta",
     "start:hass-dev": "docker run --rm -p8123:8123 -v ./.hass_dev:/config homeassistant/home-assistant:dev"
   },
   "author": "Paul Bottein",
@@ -20,6 +20,7 @@
   "dependencies": {
     "@material/mwc-select": "^0.27.0",
     "@material/mwc-textfield": "^0.27.0",
+    "@mdi/js": "^7.4.47",
     "color": "^4.2.3",
     "hammerjs": "^2.0.8",
     "home-assistant-js-websocket": "^9.4.0",
